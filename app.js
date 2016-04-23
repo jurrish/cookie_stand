@@ -13,7 +13,8 @@ var pikePlace = {//naming my object
   },
   cookieSalePerHour: function() {//create a method to calculate a random amount of cookies sold per hour based on personPerHour random calculation
     for(var i = 0; i < timeArray.length; i++) {
-      this.cookiesPerHour.push(this.averageCookiePerSale * this.personPerHour(this.minCustomers, this.maxCustomers));
+      this.cookiesPerHour.push(Math.floor((this.averageCookiePerSale * this.personPerHour(this.minCustomers, this.maxCustomers))));
+      this.totalSales = this.cookiesPerHour[i] + this.totalSales;
       // totalSales++; outside the for loop?
       // pCreateEle = document.createElement('li');
       // pAppendChild = document.appendChild(pCreateEle);
