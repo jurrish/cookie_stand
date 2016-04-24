@@ -1,6 +1,7 @@
 var elPikePlace = document.getElementById('shop-one');
 
 var timeArray = ['tenAm', 'elevenAm', 'twelvePm', 'onePm', 'twoPm', 'threePm', 'fourPm', 'fivePm'];
+var demand = [];
 
 var pikePlace = {//naming my object
   minCustomers: 17,//this location has a min customer base of 17 at any given hour
@@ -15,9 +16,27 @@ var pikePlace = {//naming my object
     for(var i = 0; i < timeArray.length; i++) {
       this.cookiesPerHour.push(Math.floor((this.averageCookiePerSale * this.personPerHour(this.minCustomers, this.maxCustomers))));
       this.totalSales = this.cookiesPerHour[i] + this.totalSales;
+      demand.push(this.totalSales[i]);
       // totalSales++; outside the for loop?
       // pCreateEle = document.createElement('li');
       // pAppendChild = document.appendChild(pCreateEle);
     }
   }
 };
+
+// for(time in timeArray) {
+//   var liEl = document.createElement('li');
+//   liEl.textContent = timeArray[time];
+//   var nestedUlEl = document.createElement('ul');
+//
+//   for(week in weeks) {
+//     var nestedLiEl = document.createElement('li');
+//     nestedLiEl.textContent = weeks[week];
+//     nestedUlEl.appendChild(nestedLiEl);
+//   }
+//
+//   liEl.appendChild(nestedUlEl);
+//   ulEl.appendChild(liEl);
+// }
+//
+// sectionEl.appendChild(ulEl);
