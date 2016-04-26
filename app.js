@@ -1,7 +1,6 @@
 var elPikePlace = document.getElementById('shop-one');
 
 var timeArray = ['tenAm', 'elevenAm', 'twelvePm', 'onePm', 'twoPm', 'threePm', 'fourPm', 'fivePm'];
-var demand = [];
 
 var pikePlace = {//naming my object
   minCustomers: 17,//this location has a min customer base of 17 at any given hour
@@ -14,16 +13,24 @@ var pikePlace = {//naming my object
   },
   cookieSalePerHour: function() {//create a method to calculate a random amount of cookies sold per hour based on personPerHour random calculation
     for(var i = 0; i < timeArray.length; i++) {
-      this.cookiesPerHour.push(Math.floor((this.averageCookiePerSale * this.personPerHour(this.minCustomers, this.maxCustomers))));
-      this.totalSales = this.cookiesPerHour[i] + this.totalSales;
-      demand.push(this.totalSales[i]);
+      var cookies = Math.floor(this.averageCookiePerSale * this.personPerHour(this.minCustomers, this.maxCustomers));
+      this.cookiesPerHour.push(cookies);
+      this.totalSales += cookies;
+      // var liEl = document.createElement('li');
+      // liEl.textContent = timeArray[i];
       // totalSales++; outside the for loop?
       // pCreateEle = document.createElement('li');
       // pAppendChild = document.appendChild(pCreateEle);
     }
+  },
+  render: function() {
+    
   }
 };
 
+// var rand = Math.floor(this.averageCookiePerSale * this.personPerHour(this.minCustomers, this.maxCustomers));
+// this.cookiesPerHour.push(rand);
+// this.totalSales += rand;
 // for(time in timeArray) {
 //   var liEl = document.createElement('li');
 //   liEl.textContent = timeArray[time];
