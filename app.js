@@ -33,15 +33,15 @@ var pikePlace = {//naming my object
   ulEl.appendChild(document.createTextNode(this.name));
   var sectionEl = document.getElementById('store_data').appendChild(ulEl);
 
-  for (var i = 0; i < timeArray.length; i++) {
+  for (var j = 0; j < timeArray.length; j++) {
     var liEl = document.createElement('li');
-    console.log('timeArray: ' + timeArray[i] + ' totalSales[i] : ' + this.totalSales[i]);
-    liEl.textContent = timeArray[i] + ': ' + this.totalSales[i];
+    console.log('timeArray: ' + timeArray[j] + ' cookiesPerHour[j] : ' + this.cookiesPerHour[j]);
+    liEl.textContent = timeArray[j] + ': ' + this.cookiesPerHour[j];
     ulEl.appendChild(liEl);
   }
 
   var liEl_two = document.createElement('li');
-  liEl_two.textContent = 'Total: ' + this.dailyCookies;
+  liEl_two.textContent = 'Total: ' + this.totalSales;
   ulEl.appendChild(liEl_two);
 }
 //this.cookieSalePerHour(this.cookiesPerHour, this.totalSales, this.cookieSalePerHour, this.getRandom, timeArray);
