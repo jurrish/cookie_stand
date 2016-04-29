@@ -19,17 +19,24 @@ h2 {
 }
 
 h3 {
-
+  color: black;
 }
 
 #colorOne {
   background-color: orange;
+  line-height: 40px;
 }
 
 #colorTwo {
   background-color: green;
+  line-height: 60px;
 }
 
 #colorThree {
   background-color: brown;
+  line-height: 80px;
+}
+
+#colorPalette {
+  line-height: 30px;
 }
