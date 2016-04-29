@@ -1,0 +1,23 @@
+header {
+  font-family: serif;
+  font-weight: bold;
+}
+
+p {
+  font-family: sans-serif;
+  color: gray;
+}
+
+h1 {
+  color: yellow;
+  font-family: sans-serif;
+}
+
+h2 {
+  font-family: sans-serif;
+  color: green;
+}
+
+h3 {
+
+}
