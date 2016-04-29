@@ -1,0 +1,42 @@
+header {
+  font-family: serif;
+  font-weight: bold;
+}
+
+p {
+  font-family: sans-serif;
+  color: gray;
+}
+
+h1 {
+  color: yellow;
+  font-family: sans-serif;
+}
+
+h2 {
+  font-family: sans-serif;
+  color: green;
+}
+
+h3 {
+  color: black;
+}
+
+#colorOne {
+  background-color: orange;
+  line-height: 40px;
+}
+
+#colorTwo {
+  background-color: green;
+  line-height: 60px;
+}
+
+#colorThree {
+  background-color: brown;
+  line-height: 80px;
+}
+
+#colorPalette {
+  line-height: 30px;
+}
