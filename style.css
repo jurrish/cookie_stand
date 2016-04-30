@@ -25,16 +25,19 @@ h3 {
 #colorOne {
   background-color: orange;
   line-height: 40px;
+  text-align: center;
 }
 
 #colorTwo {
   background-color: green;
   line-height: 60px;
+  text-align: center;
 }
 
 #colorThree {
   background-color: brown;
   line-height: 80px;
+  text-align: center;
 }
 
 #colorPalette {
