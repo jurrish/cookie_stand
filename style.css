@@ -6,6 +6,10 @@ header {
   background-color: brown;
 }
 
+body {
+  background-color: grey;
+}
+
 #fishpic {
   text-align:center;
   background-color: orange;
