@@ -100,7 +100,7 @@ Store.renderNew = function(obj) {
 
 var formEl = document.getElementById('form');
 
-formEl.addEventListner('submit', function(event) {
+formEl.addEventListener('submit', function(event) {
   event.preventDefault();
   var newStoreName = event.target.newstorelocation.value;//newstorelocation is in html
   var newMinCust = parseInt(event.target.min.value);//id = min
