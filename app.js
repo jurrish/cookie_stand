@@ -43,14 +43,15 @@ var tableEl = document.getElementById('stores');
 
 Store.render = function() {
   // var tableEl = document.getElementById('stores');
-  var hoursRow = document.createElement('tr');
-  var emptyCell = document.createElement('th');
-  hoursRow.appendChild(emptyCell);
-  for (var i = 0; i < timeArray; i++) {
-    tableHeader.textContent = timeArray[i];
-    hoursRow.appendChild(tableHeader);
+  var hoursRow = document.createElement('tr');//creating a tr element and saving it as a variable named hoursRow so that we can use .appendChild later.
+  var emptyCell = document.createElement('th');//creating an empty data box as a header for the row
+  hoursRow.appendChild(emptyCell);//adding the th emptyCell to the hours row that was defined earlier
+  for (var i = 0; i < timeArray.length; i++) {//during this time, we are adding times in the timeArray as our hour row
+    var tableHeader = document.createElement('th');
+    tableHeader.textContent = timeArray[i];//at each iteration add the indexed value of timeArray(whichever hour it happens to be in within the array)
+    hoursRow.appendChild(tableHeader);//append that shit to the hoursRow
   }
-  var totalHeader = document.createElement('th');
+  var totalHeader = document.createElement('th');//creating a total header to append to the end of the hours row
   totalHeader.textContent = 'Total';
   hoursRow.appendChild(totalHeader);
   tableEl.appendChild(hoursRow);
@@ -83,14 +84,16 @@ var alki = new Store('Alki', 3, 24, 2.6);
 Store.render();
 
 Store.renderNew = function(obj) {
+  console.log(obj);
   var formRow = document.createElement('tr');
   var formNameTd = document.createElement('td');
   formNameTd.textContent = obj.name;
   formRow.appendChild(formNameTd);
   for(hour in timeArray) {
     var salesTd = document.createElement('td');
-    salesTd.textContent = obj.cookieSalePerHour[hour];
-    formNameTd.appendChild(salesTd);
+    salesTd.textContent = obj.cookiesPerHour[hour];
+    console.log(obj.cookieSalePerHour[hour]);
+    formRow.appendChild(salesTd);
   }
   var newTotalTd = document.createElement('td');
   newTotalTd.textContent = obj.totalSales;
@@ -108,6 +111,7 @@ formEl.addEventListener('submit', function(event) {
   var newAvgCustSale = parseFloat(event.target.avg.value);
   var newShop = new Store(newStoreName, newMinCust, newMaxCust, newAvgCustSale);
   newShop.cookieSalePerHour();
+  console.log(newShop);
   Store.renderNew(newShop);
 });
 
