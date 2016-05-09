@@ -23,7 +23,7 @@ Store.prototype.cookieSalePerHour = function() {//all instances will inherit the
   }
 };
 
-Store.prototype.render = function() {
+Store.prototype.render = function() {//go back over this
   this.cookieSalePerHour();
 
   var ulEl = document.createElement('ul');
@@ -103,7 +103,7 @@ Store.renderNew = function(obj) {
 
 var formEl = document.getElementById('form');
 
-formEl.addEventListener('submit', function(event) {
+formEl.addEventListener('submit', function(event) {//ask about bubbling
   event.preventDefault();
   var newStoreName = event.target.newstorelocation.value;//newstorelocation is in html
   var newMinCust = parseInt(event.target.min.value);//id = min
