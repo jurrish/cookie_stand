@@ -1,6 +1,24 @@
 header {
   font-family: serif;
   font-weight: bold;
+  text-align: center;
+  border-radius: 30%;
+  background-color: brown;
+}
+
+body {
+  background-color: grey;
+}
+
+#fishpic {
+  text-align:center;
+  background-color: orange;
+}
+
+footer {
+  background-color: brown;
+  border-radius: 30%;
+  text-align: center;
 }
 
 p {
@@ -42,4 +60,14 @@ h3 {
 
 #colorPalette {
   line-height: 30px;
+}*/
+
+tr {
+ border-color: black;
+ background-color: blue;
+}
+
+td {
+  border-color: red;
+  background-color: green;
 }
