@@ -1,4 +1,15 @@
+/*@import "put stuff in here"*/
+* {
+  box-sizing: border-box;
+  background-color: #E6C5C5;
+}
+
+#fieldset {
+  text-align: center;
+}
+
 header {
+  width: 100%;
   font-family: serif;
   font-weight: bold;
   text-align: center;
@@ -6,13 +17,26 @@ header {
   background-color: brown;
 }
 
+#navUl {
+  box-sizing: border-box;
+  border-radius: 15%;
+  text-align: center;
+  list-style-type: none;
+}
+
 body {
+  max-width: 960px;
+  margin: auto;
   background-color: grey;
 }
 
 #fishpic {
   text-align:center;
-  background-color: orange;
+  background-color: #FBDCA1;
+}
+
+.fishy1 {
+  background-color: transparent;
 }
 
 footer {
@@ -41,7 +65,7 @@ h3 {
 }
 
 #colorOne {
-  background-color: orange;
+  background-color: #E6C5C5;
   line-height: 40px;
   text-align: center;
 }
@@ -68,6 +92,6 @@ tr {
 }
 
 td {
-  border-color: red;
+  border-color: black;
   background-color: green;
 }
