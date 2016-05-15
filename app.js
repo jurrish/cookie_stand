@@ -1,5 +1,5 @@
 var timeArray = ['10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm'];
-var cookieStores = [];//ASSIGNING empty array to the variable "stores"
+var cookieStores = [];
 
 function Store(name, minCustomers, maxCustomers, averageCookiePerSale) {
   this.name = name;
@@ -8,14 +8,14 @@ function Store(name, minCustomers, maxCustomers, averageCookiePerSale) {
   this.averageCookiePerSale = averageCookiePerSale;
   this.cookiesPerHour = [];
   this.totalSales = 0;
-  cookieStores.push(this);//when we're instantiating a new object, we're pushing that instance into the store array.
+  cookieStores.push(this);
 }
 
 Store.prototype.personPerHour = function(min, max) {
   return Math.random() * (max - min) + min;
 };
 
-Store.prototype.cookieSalePerHour = function() {//all instances will inherit the method cookieSalePerHour
+Store.prototype.cookieSalePerHour = function() {
   for(var i = 0; i < timeArray.length; i++) {
     var cookies = Math.floor(this.averageCookiePerSale * this.personPerHour(this.minCustomers, this.maxCustomers));
     this.cookiesPerHour.push(cookies);
@@ -23,55 +23,38 @@ Store.prototype.cookieSalePerHour = function() {//all instances will inherit the
   }
 };
 
-Store.prototype.render = function() {//go back over this
-  this.cookieSalePerHour();
-
-  var ulEl = document.createElement('ul');
-  ulEl.appendChild(document.createTextNode(this.name));
-  document.getElementById('store_data').appendChild(ulEl);
-
-  for(var j = 0; j < timeArray.length; j++) {
-    var liEl = document.createElement('li');
-    liEl.textContent = 'Hourly Sale@ ' + ' ' + timeArray[j] + ' : ' + this.cookiesPerHour[j];
-    ulEl.appendChild(liEl);
-  }
-  var totalEl = document.createElement('li');
-  totalEl.textContent = 'Total Daily Sales: ' + this.totalSales;
-  ulEl.appendChild(totalEl);
-};
 var tableEl = document.getElementById('stores');
 
 Store.render = function() {
-  // var tableEl = document.getElementById('stores');
-  var hoursRow = document.createElement('tr');//creating a tr element and saving it as a variable named hoursRow so that we can use .appendChild later.
-  var emptyCell = document.createElement('th');//creating an empty data box as a header for the row
-  hoursRow.appendChild(emptyCell);//adding the th emptyCell to the hours row that was defined earlier
-  for (var i = 0; i < timeArray.length; i++) {//during this time, we are adding times in the timeArray as our hour row
+  var hoursRow = document.createElement('tr');
+  var emptyCell = document.createElement('th');
+  hoursRow.appendChild(emptyCell);
+  for (var i = 0; i < timeArray.length; i++) {
     var tableHeader = document.createElement('th');
-    tableHeader.textContent = timeArray[i];//at each iteration add the indexed value of timeArray(whichever hour it happens to be in within the array)
-    hoursRow.appendChild(tableHeader);//append that shit to the hoursRow
+    tableHeader.textContent = timeArray[i];
+    hoursRow.appendChild(tableHeader);
   }
-  var totalHeader = document.createElement('th');//creating a total header to append to the end of the hours row
+  var totalHeader = document.createElement('th');
   totalHeader.textContent = 'Total';
   hoursRow.appendChild(totalHeader);
   tableEl.appendChild(hoursRow);
 
-  for(obj in cookieStores) { //for each object in cookiestores, object will represent the index (0, 1 ,2 ,3 ,4,5) in hours open
-    cookieStores[obj].cookieSalePerHour();//gets object you're iterating over
-    var tableRow = document.createElement('tr');//create new row
+  for(obj in cookieStores) {
+    cookieStores[obj].cookieSalePerHour();
+    var tableRow = document.createElement('tr');
     var nameRow = document.createElement('td');
-    nameRow.textContent = cookieStores[obj].name;//adds a name to the td in the nameRow
+    nameRow.textContent = cookieStores[obj].name;
     tableRow.appendChild(nameRow);
 
     for (hour in timeArray) {
       var tableData = document.createElement('td');
-      tableData.textContent = cookieStores[obj].cookiesPerHour[hour];//getting hourlySales at 10,11,12,1,2, while the cookieStore stays on the pikeplace object.
+      tableData.textContent = cookieStores[obj].cookiesPerHour[hour];
       tableRow.appendChild(tableData);
     }
     var totalsData = document.createElement('td');
     totalsData.textContent = cookieStores[obj].totalSales;
     tableRow.appendChild(totalsData);
-    tableEl.appendChild(tableRow);//appending to original tr
+    tableEl.appendChild(tableRow);
   }
 };
 
@@ -103,11 +86,11 @@ Store.renderNew = function(obj) {
 
 var formEl = document.getElementById('form');
 
-formEl.addEventListener('submit', function(event) {//ask about bubbling
+formEl.addEventListener('submit', function(event) {
   event.preventDefault();
-  var newStoreName = event.target.newstorelocation.value;//newstorelocation is in html
-  var newMinCust = parseInt(event.target.min.value);//id = min
-  var newMaxCust = parseInt(event.target.max.value);//id = max
+  var newStoreName = event.target.newstorelocation.value;
+  var newMinCust = parseInt(event.target.min.value);
+  var newMaxCust = parseInt(event.target.max.value);
   var newAvgCustSale = parseFloat(event.target.avg.value);
   var newShop = new Store(newStoreName, newMinCust, newMaxCust, newAvgCustSale);
   newShop.cookieSalePerHour();
