@@ -8,6 +8,11 @@
   text-align: center;
 }
 
+ul {
+ list-style-type: disc;
+ list-style-position: inside;
+ }
+
 header {
   width: 100%;
   font-family: cursive;
@@ -41,6 +46,11 @@ body {
   background-color: transparent;
 }
 
+#merchandise {
+  text-align: center;
+  font-weight: lighter;
+}
+
 footer {
   background-color: brown;
   border-radius: 30%;
@@ -53,8 +63,9 @@ p {
 }
 
 h1 {
-  color: yellow;
-  font-family: sans-serif;
+  color: black;
+  font-family: cursive;
+  font-size: 25px;
 }
 
 h2 {
